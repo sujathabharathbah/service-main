@@ -1,0 +1,38 @@
+{
+    "name": "service-main",
+    "version": "1.0.0",
+    "description": "microservice for the prototype service wrapper",
+    "main": "app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scripts": {
+        "start-server": "NODE_ENV=localhost nodemon --env-file=.env.localhost app.js --exec 'npm run lint:check && npm run format:check && node'",
+        "start": "NODE_ENV=development node app.js",
+        "start-temp": "NODE_ENV=development node app.js",
+        "production": "NODE_ENV=production node app.js",
+        "staging": "NODE_ENV=staging node app.js",
+        "start-local": "NODE_ENV=localhost node --env-file=.env.localhost app.js",
+        "format:check": "prettier --check .",
+        "format:fix": "prettier --write .",
+        "lint:check": "eslint .",
+        "lint:fix": "eslint --fix .",
+        "fix": "npm run lint:fix && npm run format:fix"
+    },
+    "dependencies": {
+        "@azure/communication-email": "^1.0.0",
+        "@azure/identity": "^4.4.1",
+        "@azure/keyvault-secrets": "^4.8.0",
+        "axios": "^1.2.0",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2",
+        "winston": "^3.13.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.1.1",
+        "eslint": "^9.1.1",
+        "eslint-config-prettier": "^9.1.0",
+        "globals": "^15.1.0",
+        "nodemon": "^3.1.0",
+        "prettier": "^3.2.5"
+    }
+}
